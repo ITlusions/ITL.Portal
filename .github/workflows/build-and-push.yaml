@@ -103,10 +103,10 @@ jobs:
           echo "Building Docker image with tag: $FULL_TAG"
 
           # Build and tag the Docker image
-          docker build -t nweistra/dashboard:${FULL_TAG} .
+          docker build -t nweistra/itlportal:${FULL_TAG} .
 
           # Promote versioned package to latest
-          docker tag nweistra/dashboard:${FULL_TAG} nweistra/dashboard:latest
+          docker tag nweistra/itlportal:${FULL_TAG} nweistra/itlportal:latest
 
           # Tag commit in git
           git tag -a "${FULL_TAG}" -m "Release version ${FULL_TAG}"
@@ -118,8 +118,8 @@ jobs:
       - name: Push Docker Image
         run: |
           echo "Pushing Docker image with tag: $FULL_TAG"
-          docker push nweistra/dashboard:${FULL_TAG}
-          docker push nweistra/dashboard:latest 
+          docker push nweistra/itlportal:${FULL_TAG}
+          docker push nweistra/itlportal:latest 
 
       - name: Push Docker Image with -release tag (only for main branch)
         if: github.ref == 'refs/heads/main'
@@ -133,12 +133,12 @@ jobs:
           echo "Pushing Docker image with release tag: $RELEASE_TAG"
 
           # Tag the image with the release suffix
-          docker tag nweistra/dashboard:${FULL_TAG} nweistra/dashboard:${RELEASE_TAG}
-          docker tag nweistra/dashboard:latest nweistra/dashboard:release-latest
+          docker tag nweistra/itlportal:${FULL_TAG} nweistra/itlportal:${RELEASE_TAG}
+          docker tag nweistra/itlportal:latest nweistra/itlportal:release-latest
 
           # Push the images with the release tags
-          docker push nweistra/dashboard:${RELEASE_TAG}
-          docker push nweistra/dashboard:release-latest
+          docker push nweistra/itlportal:${RELEASE_TAG}
+          docker push nweistra/itlportal:release-latest
 
           # Set the output variable for the full tag
           echo "RELEASE_TAG=${RELEASE_TAG}" >> $GITHUB_ENV
@@ -151,8 +151,8 @@ jobs:
           body: |
             Docker image version: `${{ env.RELEASE_TAG }}`
             Pushed Docker images:
-            - `nweistra/dashboard:${{ env.RELEASE_TAG }}`
-            - `nweistra/dashboard:latest`
+            - `nweistra/itlportal:${{ env.RELEASE_TAG }}`
+            - `nweistra/itlportal:latest`
           draft: false
           prerelease: false
         env:
