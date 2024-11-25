@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="dark-theme"> <!-- Default to dark theme -->
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn">Toggle Theme</button>
+    </div>
+
+    <!-- Dashboard Panels -->
+    <div class="dashboard">
+        {% for app in apps %}
+        <a href="{{ app['url'] }}" class="app-panel" target="_blank" rel="noopener noreferrer">
+            <img src="{{ app.get('logo', app.get('logo_black')) }}" 
+                 alt="{{ app['name'] }} Logo" 
+                 class="app-logo" 
+                 data-light-logo="{{ app.get('logo_black', app.get('logo')) }}" 
+                 data-dark-logo="{{ app.get('logo') }}">
+            <h3>{{ app['name'] }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

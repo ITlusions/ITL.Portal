@@ -1,0 +1,116 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+    background-color: #1e1e1e; /* Default to dark theme background */
+    color: #f4f4f4; /* Default to dark theme text color */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: #f4f4f4;
+}
+
+body.dark-theme .app-panel {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+body.dark-theme .app-panel h3 {
+    color: #ffffff;
+}
+
+/* Light Theme */
+body.light-theme {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+body.light-theme .app-panel {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+body.light-theme .app-panel h3 {
+    color: #121212;
+}
+
+/* Dashboard container */
+.dashboard {
+    display: flex; /* Change from grid to flex */
+    flex-direction: row; /* Align icons horizontally */
+    gap: 15px; /* Space between items */
+    justify-content: center; /* Align items horizontally */
+    align-items: center; /* Align items vertically */
+}
+
+/* App panel styling */
+a.app-panel {
+    text-decoration: none; /* Remove link underline */
+    color: inherit; /* Inherit theme text color */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    background-color: #2a2a2a; /* Default dark background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px; /* Inner spacing */
+    width: 150px; /* Fixed width */
+    height: 150px; /* Fixed height */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+/* Hover effect for app panel */
+a.app-panel:hover {
+    transform: translateY(-5px); /* Move upward on hover */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* Increase shadow */
+}
+
+/* App logo styling */
+.app-logo {
+    width: 100px; /* Fixed width */
+    height: 100px; /* Fixed height */
+    object-fit: contain; /* Preserve logo aspect ratio */
+    margin-bottom: 10px; /* Spacing below logo */
+}
+
+/* App name styling */
+a.app-panel h3 {
+    font-size: 1rem; /* Moderate font size */
+    text-align: center; /* Center text */
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: absolute; /* Position relative to the viewport */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+}
+
+#theme-toggle-btn {
+    padding: 10px 20px; /* Button size */
+    background-color: #0066cc; /* Blue background */
+    color: #fff; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color change */
+}
+
+#theme-toggle-btn:hover {
+    background-color: #004d99; /* Darker blue on hover */
+}
