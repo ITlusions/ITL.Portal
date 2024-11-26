@@ -16,6 +16,7 @@ def create_app():
             {"name": "Longhorn", "url": "https://longhorn.dev.itlusions.com/", "logo": "https://ranchergovernment.com/hs-fs/hubfs/Longhorn%201.png?width=389&height=319&name=Longhorn%201.png", "logo_black": "/static/img/longhorn-dark.png"},
             {"name": "Grafana", "url": "https://grafana.dev.itlusions.com/", "logo": "/static/img/grafana-icon.svg"},
             {"name": "Prometheus", "url": "https://prometheus.dev.itlusions.com/", "logo": "/static/img/prometheus_logo.png"},
+            {"name": "Pi-Hole", "url": "http://192.168.1.241:8080/admin/", "logo": "/static/img/logo-pihole.svg"},
         ]
         return render_template("index.html", apps=apps)
     
